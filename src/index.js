@@ -28,8 +28,11 @@ function createMultipleChoiceQuestion(container, questionConfig) {
     input.name = id;
     input.value = optionText;
 
+    const optionLabelText = document.createElement("span");
+    optionLabelText.textContent = optionText;
+
     label.appendChild(input);
-    label.append(` ${optionText}`);
+    label.appendChild(optionLabelText);
     optionsList.appendChild(label);
   });
 
@@ -50,13 +53,15 @@ function createMultipleChoiceQuestion(container, questionConfig) {
     const selectedInput = wrapper.querySelector(`input[name="${id}"]:checked`);
 
     if (!selectedInput) {
-      feedback.textContent = "Selecciona una opción";
+      feedback.textContent = "⚠ Selecciona una opción";
       feedback.className = "exercise-feedback is-pending";
       return;
     }
 
     const isCorrect = validateMultipleChoiceAnswer(selectedInput.value, correctOption);
-    feedback.textContent = isCorrect ? FEEDBACK_TEXT.correct : FEEDBACK_TEXT.incorrect;
+    feedback.textContent = isCorrect
+      ? `✓ ${FEEDBACK_TEXT.correct}`
+      : `✗ ${FEEDBACK_TEXT.incorrect}`;
     feedback.className = `exercise-feedback ${isCorrect ? "is-correct" : "is-incorrect"}`;
   });
 

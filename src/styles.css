@@ -25,6 +25,7 @@ body {
 .exercise-option {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 
 .exercise-button {
