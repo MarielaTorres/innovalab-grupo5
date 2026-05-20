@@ -1,6 +1,7 @@
 const FEEDBACK_TEXT = {
   correct: "Correcto",
   incorrect: "Incorrecto",
+  pending: "Selecciona una opción",
 };
 
 function validateMultipleChoiceAnswer(selectedOption, correctOption) {
@@ -53,7 +54,7 @@ function createMultipleChoiceQuestion(container, questionConfig) {
     const selectedInput = wrapper.querySelector(`input[name="${id}"]:checked`);
 
     if (!selectedInput) {
-      feedback.textContent = "⚠ Selecciona una opción";
+      feedback.textContent = `⚠ ${FEEDBACK_TEXT.pending}`;
       feedback.className = "exercise-feedback is-pending";
       return;
     }
@@ -73,7 +74,7 @@ function createMultipleChoiceQuestion(container, questionConfig) {
 }
 
 function renderInteractiveExercises(exercises, container) {
-  container.innerHTML = "";
+  container.replaceChildren();
   exercises.forEach((exercise) => createMultipleChoiceQuestion(container, exercise));
 }
 

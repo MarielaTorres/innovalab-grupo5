@@ -13,4 +13,5 @@ test("validateMultipleChoiceAnswer returns false for incorrect answer", () => {
 test("feedback labels for visual validation are defined", () => {
   assert.equal(FEEDBACK_TEXT.correct, "Correcto");
   assert.equal(FEEDBACK_TEXT.incorrect, "Incorrecto");
+  assert.equal(FEEDBACK_TEXT.pending, "Selecciona una opción");
 });
