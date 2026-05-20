@@ -43,13 +43,15 @@ function createMultipleChoiceQuestion(container, questionConfig) {
   const feedback = document.createElement("p");
   feedback.className = "exercise-feedback";
   feedback.setAttribute("aria-live", "polite");
+  feedback.setAttribute("aria-atomic", "true");
+  feedback.setAttribute("role", "status");
 
   checkButton.addEventListener("click", () => {
     const selectedInput = wrapper.querySelector(`input[name="${id}"]:checked`);
 
     if (!selectedInput) {
       feedback.textContent = "Selecciona una opción";
-      feedback.className = "exercise-feedback";
+      feedback.className = "exercise-feedback is-pending";
       return;
     }
 
