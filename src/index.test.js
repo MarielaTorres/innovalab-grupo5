@@ -10,6 +10,15 @@ test("validateMultipleChoiceAnswer returns false for incorrect answer", () => {
   assert.equal(validateMultipleChoiceAnswer("B", "A"), false);
 });
 
+test("validateMultipleChoiceAnswer handles null and undefined values", () => {
+  assert.equal(validateMultipleChoiceAnswer(null, "A"), false);
+  assert.equal(validateMultipleChoiceAnswer(undefined, undefined), true);
+});
+
+test("validateMultipleChoiceAnswer is case-sensitive", () => {
+  assert.equal(validateMultipleChoiceAnswer("a", "A"), false);
+});
+
 test("feedback labels for visual validation are defined", () => {
   assert.equal(FEEDBACK_TEXT.correct, "Correcto");
   assert.equal(FEEDBACK_TEXT.incorrect, "Incorrecto");

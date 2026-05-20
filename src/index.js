@@ -74,7 +74,11 @@ function createMultipleChoiceQuestion(container, questionConfig) {
 }
 
 function renderInteractiveExercises(exercises, container) {
-  container.replaceChildren();
+  if (typeof container.replaceChildren === "function") {
+    container.replaceChildren();
+  } else {
+    container.innerHTML = "";
+  }
   exercises.forEach((exercise) => createMultipleChoiceQuestion(container, exercise));
 }
 
