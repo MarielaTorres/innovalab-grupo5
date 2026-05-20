@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+}
+
+.exercise-layout {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.exercise-card {
+  background: #fff;
+  border: 1px solid #d6d8de;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.exercise-options {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.exercise-option {
+  display: flex;
+  align-items: center;
+}
+
+.exercise-button {
+  margin-top: 1rem;
+  padding: 0.5rem 0.8rem;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  background: #1f6feb;
+}
+
+.exercise-feedback {
+  min-height: 1.5rem;
+  margin: 0.8rem 0 0;
+  font-weight: 700;
+}
+
+.exercise-feedback.is-correct {
+  color: #1a7f37;
+}
+
+.exercise-feedback.is-incorrect {
+  color: #d1242f;
+}
